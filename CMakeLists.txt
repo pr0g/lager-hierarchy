@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.15)
-project(larger-test)
+project(lager-test)
 
 include(FetchContent)
+FetchContent_Declare(
+  thh_handles
+  GIT_REPOSITORY https://github.com/pr0g/cpp-handle-container.git
+  GIT_TAG        de5dfa1234d81f0054d02347567d5bf949531be5)
 FetchContent_Declare(
   zug
   GIT_REPOSITORY https://github.com/arximboldi/zug.git
@@ -10,11 +14,15 @@ FetchContent_Declare(
   lager
   GIT_REPOSITORY https://github.com/arximboldi/lager.git
   GIT_TAG c9d8b7d3c7dc7138913757d1624ab705866d791d)
-FetchContent_MakeAvailable(lager zug)
+FetchContent_Declare(
+  immer
+  GIT_REPOSITORY https://github.com/arximboldi/immer.git
+  GIT_TAG cb054e982d202b72d3843fb0b18a15e62221ba33)
+FetchContent_MakeAvailable(lager zug thh_handles immer)
 
 find_package(Hana REQUIRED)
 
 add_executable(${PROJECT_NAME})
-target_sources(${PROJECT_NAME} PRIVATE main.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE lager zug hana)
+target_sources(${PROJECT_NAME} PRIVATE main.cpp demo.cpp hierarchy.cpp)
+target_link_libraries(${PROJECT_NAME} PRIVATE lager zug hana thh_handles immer)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
