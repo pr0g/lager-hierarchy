@@ -18,11 +18,17 @@ FetchContent_Declare(
   immer
   GIT_REPOSITORY https://github.com/arximboldi/immer.git
   GIT_TAG cb054e982d202b72d3843fb0b18a15e62221ba33)
-FetchContent_MakeAvailable(lager zug thh_handles immer)
+FetchContent_Declare(
+  hierarchy
+  GIT_REPOSITORY https://github.com/pr0g/hierarchy.git
+  GIT_TAG c9df14a8dc440834f20ea6d9cb893940f1be10af)
+FetchContent_MakeAvailable(lager zug thh_handles immer hierarchy)
 
 find_package(Hana REQUIRED)
+find_package(Curses REQUIRED)
 
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE main.cpp demo.cpp hierarchy.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE lager zug hana thh_handles immer)
+target_link_libraries(
+  ${PROJECT_NAME} PRIVATE lager zug hana thh_handles immer hierarchy Curses)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
