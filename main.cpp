@@ -49,6 +49,12 @@ int main(int argc, char** argv) {
     switch (int key = getch(); key) {
       case 10: // enter
         return la::add_entity_action_t{};
+      case KEY_UP:
+        return la::move_up_action_t{};
+      case KEY_DOWN:
+        return la::move_down_action_t{};
+      case ' ': // space
+        return la::deselect_action_t{};
       default:
         return std::nullopt;
     }

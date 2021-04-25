@@ -4,8 +4,9 @@ project(lager-test)
 include(FetchContent)
 FetchContent_Declare(
   thh_handles
-  GIT_REPOSITORY https://github.com/pr0g/cpp-handle-container.git
-  GIT_TAG        de5dfa1234d81f0054d02347567d5bf949531be5)
+  SOURCE_DIR ../../cpp-handles)
+  # GIT_REPOSITORY https://github.com/pr0g/cpp-handle-container.git
+  # GIT_TAG        de5dfa1234d81f0054d02347567d5bf949531be5)
 FetchContent_Declare(
   zug
   GIT_REPOSITORY https://github.com/arximboldi/zug.git
@@ -20,8 +21,9 @@ FetchContent_Declare(
   GIT_TAG cb054e982d202b72d3843fb0b18a15e62221ba33)
 FetchContent_Declare(
   hierarchy
-  GIT_REPOSITORY https://github.com/pr0g/hierarchy.git
-  GIT_TAG c9df14a8dc440834f20ea6d9cb893940f1be10af)
+  SOURCE_DIR ../../hierarchy)
+  # GIT_REPOSITORY https://github.com/pr0g/hierarchy.git
+  # GIT_TAG c9df14a8dc440834f20ea6d9cb893940f1be10af)
 FetchContent_MakeAvailable(lager zug thh_handles immer hierarchy)
 
 find_package(Hana REQUIRED)
