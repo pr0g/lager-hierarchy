@@ -21,7 +21,7 @@ FetchContent_Declare(
 FetchContent_Declare(
   hierarchy
   GIT_REPOSITORY https://github.com/pr0g/hierarchy.git
-  GIT_TAG a3efd6ce0f4241f2500b323627b1b509a1173655)
+  GIT_TAG 49703301f6e922733a14666562ef8f954b9974b7)
 FetchContent_MakeAvailable(lager zug thh_handles immer hierarchy)
 
 find_package(Hana REQUIRED)
