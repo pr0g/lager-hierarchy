@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
     mvprintw(level, indent * 4, "\xE2\x94\x82");
   };
 
-  auto draw = [display_name, display_connection](hy::model_t curr) {
+  auto draw = [display_name, display_connection](const hy::model_t& curr) {
     clear();
 
     hy::display_hierarchy(
