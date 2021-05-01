@@ -49,6 +49,15 @@ namespace la {
         [&](deselect_action_t) {
           current.interaction_.deselect();
           return current;
+        },
+        [&](expand_action_t) {
+          current.interaction_.expand(current.interaction_.selected());
+          return current;
+        },
+        [&](collapse_action_t) {
+          current.interaction_.collapse(
+            current.interaction_.selected(), current.entities_);
+          return current;
         }},
       action);
   }

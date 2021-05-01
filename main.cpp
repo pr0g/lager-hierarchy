@@ -53,6 +53,10 @@ int main(int argc, char** argv) {
         return la::move_up_action_t{};
       case KEY_DOWN:
         return la::move_down_action_t{};
+      case KEY_LEFT:
+        return la::collapse_action_t{};
+      case KEY_RIGHT:
+        return la::expand_action_t{};
       case ' ': // space
         return la::deselect_action_t{};
       default:

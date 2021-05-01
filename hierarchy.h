@@ -12,10 +12,12 @@ namespace la {
   struct move_down_action_t {};
   struct move_up_action_t {};
   struct deselect_action_t {};
+  struct expand_action_t {};
+  struct collapse_action_t {};
 
   using action_t = std::variant<
     add_entity_action_t, move_down_action_t, move_up_action_t,
-    deselect_action_t>;
+    deselect_action_t, expand_action_t, collapse_action_t>;
 
   hy::model_t update(hy::model_t current, action_t action);
 
